@@ -1,9 +1,13 @@
 import { Container } from '@/components'
+import { Hero } from './modules'
 
 export default function Home() {
   return (
-    <Container>
-      <p>Home</p>
-    </Container>
+    <>
+      <Hero />
+      <Container>
+        <p>Home</p>
+      </Container>
+    </>
   )
 }
