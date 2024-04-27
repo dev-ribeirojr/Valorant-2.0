@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Kanit } from 'next/font/google'
 import Favicon from '@/assets/images/favicon.png'
 import './globals.css'
 import { Header } from '@/components'
 
-const inter = Inter({ subsets: ['latin'] })
+const kanit = Kanit({
+  subsets: ['latin'],
+  weight: ['700', '800', '900', '400'],
+})
 
 export const metadata: Metadata = {
   title: 'Valorant 2.0',
@@ -25,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>
+      <body className={kanit.className}>
         <Header />
         {children}
       </body>
