@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Container>
+      <Container className="pt-4">
         <p>Home</p>
       </Container>
     </>
