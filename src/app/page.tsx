@@ -1,13 +1,10 @@
-import { Container } from '@/components'
-import { Hero } from './modules'
+import { Hero, Maps } from './modules'
 
 export default function Home() {
   return (
-    <>
+    <main className="bg-gray-900 w-full">
       <Hero />
-      <Container className="pt-4">
-        <p>Home</p>
-      </Container>
-    </>
+      <Maps />
+    </main>
   )
 }
