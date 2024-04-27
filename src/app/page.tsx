@@ -1,7 +1,9 @@
+import { Container } from '@/components'
+
 export default function Home() {
   return (
-    <main className="bg-red-300 h-full">
+    <Container>
       <p>Home</p>
-    </main>
+    </Container>
   )
 }
