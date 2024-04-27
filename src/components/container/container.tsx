@@ -11,7 +11,7 @@ export function Container({ children, ...rest }: ContainerProps) {
         rest.className,
       )}
     >
-      <div className="h-full w-full max-w-screen-2xl m-auto">{children}</div>
+      <div className="h-full w-full max-w-screen-xl m-auto">{children}</div>
     </main>
   )
 }
