@@ -14,7 +14,7 @@ export function CardAgent({ agent }: CardAgentProps) {
       style={{
         backgroundImage: `linear-gradient(to top, #${colors[0]}, #${colors[1]}, #${colors[2]}, #${colors[3]})`,
       }}
-      className="child transform transition-transform duration-300 hover:border-2 border-white pt-4 rounded-t-sm"
+      className="child transform transition-transform duration-300 hover:border-2 border-white pt-4 rounded-t-sm h-fit"
     >
       <div
         style={{
