@@ -3,7 +3,7 @@ import { ActiveMapDetails } from './modules'
 import { useMaps } from './useMaps'
 
 export async function Maps() {
-  const { activeMap } = await useMaps()
+  const { listMaps } = await useMaps()
 
   return (
     <div>
@@ -14,7 +14,7 @@ export async function Maps() {
         />
       </Container>
 
-      <ActiveMapDetails activeMap={activeMap} />
+      <ActiveMapDetails listMaps={listMaps} />
     </div>
   )
 }

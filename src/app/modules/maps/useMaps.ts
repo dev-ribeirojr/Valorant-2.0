@@ -11,17 +11,7 @@ export async function useMaps() {
     return responseJson.data
   }
 
-  const maps = await getMaps()
-  const filterValidateMapActive = maps.filter(
-    (map) =>
-      map.premierBackgroundImage && map.coordinates && map.narrativeDescription,
-  )
+  const listMaps = await getMaps()
 
-  const randomNumber = Math.floor(
-    Math.random() * filterValidateMapActive.length,
-  )
-
-  const activeMap = filterValidateMapActive[randomNumber]
-
-  return { activeMap }
+  return { listMaps }
 }

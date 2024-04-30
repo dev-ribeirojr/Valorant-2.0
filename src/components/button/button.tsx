@@ -21,7 +21,7 @@ export function Button({
   return (
     <button
       className={clsx(
-        'text-white rounded py-2 px-4 disabled:opacity-30',
+        'text-white rounded py-2 px-4 disabled:opacity-30 flex items-center justify-center',
         active
           ? 'bg-gradient-to-r from-red-500 to-red-400 hover:opacity-80'
           : 'bg-gray-800 hover:bg-gradient-to-r from-red-500 to-red-400 ',

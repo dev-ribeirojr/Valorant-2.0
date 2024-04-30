@@ -1,10 +1,14 @@
-import { MapProps } from '@/types'
+'use client'
+import { ListMapProps } from '@/types'
+import { useActiveMapDetails } from './useActiveMapDetails'
+import { Button } from '@/components'
 
 interface ActiveMapDetailsProps {
-  activeMap: MapProps
+  listMaps: ListMapProps
 }
 
-export function ActiveMapDetails({ activeMap }: ActiveMapDetailsProps) {
+export function ActiveMapDetails({ listMaps }: ActiveMapDetailsProps) {
+  const { activeMap, handleChangeActiveMap } = useActiveMapDetails({ listMaps })
   return (
     <div
       className={`w-full  bg-fixed bg-center flex items-center justify-center flex-col gap-4 p-4`}
@@ -29,7 +33,8 @@ export function ActiveMapDetails({ activeMap }: ActiveMapDetailsProps) {
             <h2 className="text-4xl mb-4">{activeMap.displayName}</h2>
             <p>{activeMap.narrativeDescription}</p>
           </div>
-          <p className="bg-gradient-to-r from-red-500 to-red-400 py-2 px-4 rounded text-white mt-4 w-fit">
+
+          <p className="bg-gradient-to-r from-red-500 to-red-400 py-2 px-4 rounded text-white w-fit mt-4">
             Cordenadas: {activeMap.coordinates || 'XXXX'}
           </p>
         </div>
@@ -40,6 +45,8 @@ export function ActiveMapDetails({ activeMap }: ActiveMapDetailsProps) {
           alt={`Mapa ${activeMap.displayName}`}
         />
       </div>
+
+      <Button active title="Sortear Mapa" onClick={handleChangeActiveMap} />
     </div>
   )
 }
