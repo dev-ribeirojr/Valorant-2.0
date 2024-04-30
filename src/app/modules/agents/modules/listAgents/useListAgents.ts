@@ -1,19 +1,40 @@
-import { api } from '@/services/api'
+'use client'
 import { ListAgentsProps } from '@/types'
+import { ChangeEvent, useState } from 'react'
 
-export async function useListAgents() {
-  async function getListAgents(): Promise<ListAgentsProps> {
-    const response = await api('/agents', { method: 'GET' })
+export function useListAgents({ listAgents }: { listAgents: ListAgentsProps }) {
+  const [searchAgentName, setSearchAgentName] = useState('')
+  const [currentPage, setCurrentPage] = useState(0)
 
-    const responseJson = await response.json()
-    return responseJson.data
-  }
+  const itemsPerPage = 8
+  const listAgentsPagination: ListAgentsProps = []
 
-  const agents = await getListAgents()
-
-  const filterValidateAgents = agents.filter(
-    (agent) => agent.bustPortrait || agent.fullPortrait || agent.fullPortraitV2,
+  const pages = Math.floor(listAgents.length / 8)
+  const filterAgentName = listAgents.filter((agent) =>
+    agent.displayName.toUpperCase().includes(searchAgentName.toUpperCase()),
   )
 
-  return { filterValidateAgents }
+  filterAgentName
+    .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
+    .map((item) => {
+      return listAgentsPagination.push(item)
+    })
+
+  function handleChangeSearchAgentName(e: ChangeEvent<HTMLInputElement>) {
+    setSearchAgentName(e.target.value)
+    handleChangeCurrentPagePagination(0)
+  }
+  function handleChangeCurrentPagePagination(page: number) {
+    setCurrentPage(page)
+  }
+
+  return {
+    listAgentsPagination,
+    searchAgentName,
+    filterAgentName,
+    currentPage,
+    pages,
+    handleChangeSearchAgentName,
+    handleChangeCurrentPagePagination,
+  }
 }
