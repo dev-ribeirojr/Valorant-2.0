@@ -1,3 +1,6 @@
 export { Header } from './header/header'
 export { Container } from './container/container'
 export { AboutSection } from './aboutSection/aboutSection'
+export { Input } from './input/input'
+export { Pagination } from './pagination/pagination'
+export { Button } from './button/button'
