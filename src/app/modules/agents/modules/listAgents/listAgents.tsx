@@ -17,7 +17,7 @@ export function ListAgents({ listAgents }: { listAgents: ListAgentsProps }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-col items-center md:flex-row">
         <Pagination
           changePagination={handleChangeCurrentPagePagination}
           pages={pages}
@@ -42,6 +42,14 @@ export function ListAgents({ listAgents }: { listAgents: ListAgentsProps }) {
           </p>
         </div>
       )}
+
+      <div className="flex items-center justify-center lg:hidden">
+        <Pagination
+          changePagination={handleChangeCurrentPagePagination}
+          pages={pages}
+          currentPage={currentPage}
+        />
+      </div>
     </div>
   )
 }
