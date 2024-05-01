@@ -1,10 +1,16 @@
 import { DinamicPageProps } from '@/types'
+import { useAgent } from '../useAgent'
+import { Abilities, Hero } from '../modules'
 
-export default function AgentPage({ params: { slug } }: DinamicPageProps) {
+export default async function AgentPage({
+  params: { slug },
+}: DinamicPageProps) {
+  const { agent } = await useAgent({ agentUuid: slug })
+
   return (
-    <main className="bg-red-300">
-      <p>agent</p>
-      <button className="bg-red-500">teste button {slug}</button>
+    <main>
+      <Hero agent={agent} />
+      <Abilities agent={agent} />
     </main>
   )
 }
