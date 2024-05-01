@@ -24,8 +24,6 @@ export function useListWeapons({
       return listWeaponsPagination.push(item)
     })
 
-  console.log(filterWeaponsName.length)
-
   function handleChangeSearchWeaponName(e: ChangeEvent<HTMLInputElement>) {
     setSearchWeaponName(e.target.value)
     setCurrentPage(0)
