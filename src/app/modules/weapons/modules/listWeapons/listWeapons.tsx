@@ -37,6 +37,13 @@ export function ListWeapons({
           <CardWeapon weapon={weapon} key={weapon.uuid} />
         ))}
       </Grid>
+      {listWeaponsPagination.length === 0 && (
+        <div className="h-60 bg-gray-800 rounded flex items-center justify-center">
+          <p className="text-white text-2xl">
+            Nenhuma arma corresponde ao filtro.
+          </p>
+        </div>
+      )}
       <div className="flex items-center justify-center lg:hidden">
         <Pagination
           changePagination={handleChangeCurrentPagePagination}
