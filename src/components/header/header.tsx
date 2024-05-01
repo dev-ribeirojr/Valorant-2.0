@@ -1,5 +1,6 @@
 import LogoRiot from '@/assets/images/riot-logo.svg'
 import LogoValorant from '@/assets/images/valorant-logo-text.svg'
+import { ButtonHome } from './modules'
 
 export function Header() {
   return (
@@ -15,9 +16,13 @@ export function Header() {
           />
         </div>
 
-        <button className="bg-gradient-to-r from-red-500 to-red-400 py-2 px-4 rounded text-white hover:opacity-80">
-          Jogar Agora!
-        </button>
+        <div className="flex gap-4 items-center justify-center">
+          <ButtonHome />
+
+          <button className="bg-gradient-to-r from-red-500 to-red-400 py-2 px-4 rounded text-white hover:opacity-80">
+            Jogar Agora!
+          </button>
+        </div>
       </div>
     </header>
   )
