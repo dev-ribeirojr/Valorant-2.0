@@ -9,7 +9,7 @@ export function useListAgents({ listAgents }: { listAgents: ListAgentsProps }) {
   const itemsPerPage = 8
   const listAgentsPagination: ListAgentsProps = []
 
-  const pages = Math.floor(listAgents.length / 8)
+  const pages = Math.ceil(listAgents.length / itemsPerPage)
   const filterAgentName = listAgents.filter((agent) =>
     agent.displayName.toUpperCase().includes(searchAgentName.toUpperCase()),
   )

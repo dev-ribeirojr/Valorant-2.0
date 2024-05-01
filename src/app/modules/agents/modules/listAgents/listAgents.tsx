@@ -1,5 +1,5 @@
 'use client'
-import { Input, Pagination } from '@/components'
+import { Grid, Input, Pagination } from '@/components'
 import { CardAgent } from './modules'
 import { ListAgentsProps } from '@/types'
 import { useListAgents } from './useListAgents'
@@ -29,11 +29,11 @@ export function ListAgents({ listAgents }: { listAgents: ListAgentsProps }) {
           placeholder="Buscar agentes"
         />
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 xl:grid-cols-4">
+      <Grid>
         {listAgentsPagination.map((agent) => (
           <CardAgent agent={agent} key={agent.uuid} />
         ))}
-      </div>
+      </Grid>
 
       {listAgentsPagination.length === 0 && (
         <div className="h-60 bg-gray-800 rounded flex items-center justify-center">
