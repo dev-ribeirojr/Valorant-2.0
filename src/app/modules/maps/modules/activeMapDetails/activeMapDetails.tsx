@@ -28,25 +28,26 @@ export function ActiveMapDetails({ listMaps }: ActiveMapDetailsProps) {
           src={activeMap.listViewIconTall}
           alt={`Mapa ${activeMap.displayName}`}
         />
+
         <div className="p-4 text-white bg-gray-800  w-full flex flex-col justify-between rounded-md lg:rounded-r-none sm:rounded-l-none">
-          <div className="w-full">
-            <h2 className="text-4xl mb-4">{activeMap.displayName}</h2>
-            <p>{activeMap.narrativeDescription}</p>
+          <div className="w-full items-center justify-center flex flex-col gap-4">
+            <h2 className="text-4xl">{activeMap.displayName}</h2>
+            <p className="bg-gradient-to-r from-red-500 to-red-400 py-2 px-4 rounded text-white w-fit mt-4">
+              Cordenadas: {activeMap.coordinates || 'XXXX'}
+            </p>
+            <Button
+              active
+              title="Alterar Mapa"
+              onClick={handleChangeActiveMap}
+            />
           </div>
-
-          <p className="bg-gradient-to-r from-red-500 to-red-400 py-2 px-4 rounded text-white w-fit mt-4">
-            Cordenadas: {activeMap.coordinates || 'XXXX'}
-          </p>
         </div>
-
         <img
           className="w-full h-60 max-w-[200px] object-cover rounded-es-sm rounded-r-md hidden lg:block"
           src={activeMap.premierBackgroundImage || ''}
           alt={`Mapa ${activeMap.displayName}`}
         />
       </div>
-
-      <Button active title="Sortear Mapa" onClick={handleChangeActiveMap} />
     </div>
   )
 }

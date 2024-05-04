@@ -18,8 +18,7 @@ export function useActiveMapDetails({ listMaps }: { listMaps: ListMapProps }) {
   }
 
   const filterValidateMapActive = listMaps.filter(
-    (map) =>
-      map.premierBackgroundImage && map.coordinates && map.narrativeDescription,
+    (map) => map.premierBackgroundImage && map.coordinates,
   )
 
   const activeMap = filterValidateMapActive[indexMapActive]
