@@ -68,7 +68,7 @@ interface LevelsProps {
   assetsPath: string
 }
 
-interface SkinsProps {
+interface SkinProps {
   readonly uuid: string
   displayName: string
   themeUuid: string
@@ -80,6 +80,8 @@ interface SkinsProps {
   levels: LevelsProps[]
 }
 
+export type ListSkinsWeaponProps = SkinProps[]
+
 export interface WeaponProps {
   readonly uuid: string
   displayName: string
@@ -90,7 +92,7 @@ export interface WeaponProps {
   assetPath: string
   weaponStats: WeaponsStatsProps | null
   shopData: ShopDataProps | null
-  skins: SkinsProps[]
+  skins: ListSkinsWeaponProps
 }
 
 export type ListWeaponsProps = WeaponProps[]
